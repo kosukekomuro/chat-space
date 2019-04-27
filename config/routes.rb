@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'tweets#index'
+  root 'comments#index'
 end
