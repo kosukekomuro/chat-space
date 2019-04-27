@@ -7,7 +7,7 @@
  Column | Type | Options
   --- | --- | --- |
   id | INT | PRIMARY KEY |
-  name | VARCHER | null: false |
+  name | VARCHER | null: false, unique: true, index: true  |
   email | VARCHER | null: false, uniqle: true |
   password | VARCHER | null: false |
 
@@ -22,7 +22,7 @@
  Column | Type | Options
   --- | --- | --- |
   id | INT | PRIMARY KEY |
-  group_name | VARCHER | null: false
+  name | VARCHER | null: false
 
   #### Association
   - has_many :members
@@ -35,8 +35,8 @@
  Column | Type | Options
   --- | --- | --- |
   id | INT | PRIMARY KEY |
-  user_id | INT | FOREIGN KEY |
-  group_id | INT | FOREIGN KEY |
+  references :user | INT | foreign_key: true, null: false |
+  references :group | INT | foreign_key: true , null: false|
   #### Association
   - belongs_to :user
   - belongs_to :group
@@ -47,9 +47,10 @@
  Column | Type | Options
   --- | --- | --- |
   id | INT | PRIMARY KEY |
-  comment | VARCHER |null: false |
-  user_id | INT | FOREIGN KEY |
-  group_id | INT | FOREIGN KEY |
+  content | VARCHER |null: false |
+  image | VARCHER | |
+  references :user | INT | foreign_key: true, null: false |
+  references :group | INT | foreign_key: true , null: false|
   #### Association
   - belongs_to :user
   - belongs_to :group
