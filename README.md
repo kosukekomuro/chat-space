@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## DB設計
+ ---
+### users table
+ ---
+ Column | Type | Options
+  --- | --- | --- |
+  id | INT | PRIMARY KEY |
+  name | VARCHER | null: false |
+  email | VARCHER | null: false, uniqle: true |
+  password | VARCHER | null: false |
 
-Things you may want to cover:
+  #### Association
+  - has_many :members
+  - has_many :groups, through: :members
+  - has_many :comments
 
-* Ruby version
+ ---
+### groups table
+ ---
+ Column | Type | Options
+  --- | --- | --- |
+  id | INT | PRIMARY KEY |
+  group_name | VARCHER | null: false
 
-* System dependencies
+  #### Association
+  - has_many :members
+  - has_many :users, through: :members
+  - has_many :comments
 
-* Configuration
+ ---
+### members table
+ ---
+ Column | Type | Options
+  --- | --- | --- |
+  id | INT | PRIMARY KEY |
+  user_id | INT | FOREIGN KEY |
+  group_id | INT | FOREIGN KEY |
+  #### Association
+  - belongs_to :user
+  - belongs_to :group
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+   ---
+### comments table
+ ---
+ Column | Type | Options
+  --- | --- | --- |
+  id | INT | PRIMARY KEY |
+  comment | VARCHER |null: false |
+  user_id | INT | FOREIGN KEY |
+  group_id | INT | FOREIGN KEY |
+  #### Association
+  - belongs_to :user
+  - belongs_to :group
