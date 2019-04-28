@@ -1,0 +1,9 @@
+@import "./variable";
+
+.notice {
+  background-color: $notice;
+  color :$font-white;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: lighter;
+}
