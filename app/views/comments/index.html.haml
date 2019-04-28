@@ -58,3 +58,13 @@
           2019/04/26(Fri)15:57:11
       %div.content__text
         comment2
+
+  %div.form
+    %form.new-content
+      %div.input-box
+        %input.input-box__text{placeholder:'type a message'}
+        %label.image-label
+          %i.fa.fa-image
+          %input.image-label__input#message_image{type: 'file', name: 'message[image]'}
+          
+      %input.new-content__submit-btn{ type:'submit', value: 'Send'}
