@@ -1,0 +1,46 @@
+.notice
+  グループを作成しました
+
+= render partial: 'comments/sidebar'
+
+.main
+  .main-header
+    .current-group
+      %p.current-group__group-name
+        現在のグループ
+      %ul.group-members
+        Member:
+        %li.group-members__name
+          メンバー１
+        %li.group-members__name
+          メンバー2
+    .main-header__edit-btn
+      Edit
+
+  .chat-area
+    .content
+      .content-info
+        %p.cotent-info__user
+          ユーザー名1
+        %p.content-info__date-time
+          2019/04/25(Thu)15:57:11
+      .content__text
+        comment1
+    .content
+      .content-info
+        %p.cotent-info__user
+          ユーザー名2
+        %p.content-info__date-time
+          2019/04/26(Fri)15:57:11
+      .content__text
+        comment2
+
+  .form
+    %form.new-content
+      .input-box
+        %input.input-box__text{placeholder:'type a message'}
+        %label.image-label
+          %i.fa.fa-image
+          %input.image-label__input#message_image{type: 'file', name: 'message[image]'}
+          
+      %input.new-content__submit-btn{ type:'submit', value: 'Send'}
