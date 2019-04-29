@@ -2,5 +2,8 @@
 @import "config/variable";
 @import "font-awesome";
 
-//comments .noteのimport
-@import "comments";
+//commentsのビューをimport
+@import "modules/comments";
+
+//deviseのビューのimport
+@import "modules/user";
