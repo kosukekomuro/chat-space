@@ -1,11 +1,11 @@
-%div.notice
+.notice
   グループを作成しました
 
 = render partial: 'comments/sidebar'
 
-%div.main
-  %div.main-header
-    %div.current-group
+.main
+  .main-header
+    .current-group
       %p.current-group__group-name
         現在のグループ
       %ul.group-members
@@ -14,30 +14,30 @@
           メンバー１
         %li.group-members__name
           メンバー2
-    %div.main-header__edit-btn
+    .main-header__edit-btn
       Edit
 
-  %div.chat-area
-    %div.content
-      %div.content-info
+  .chat-area
+    .content
+      .content-info
         %p.cotent-info__user
           ユーザー名1
         %p.content-info__date-time
           2019/04/25(Thu)15:57:11
-      %div.content__text
+      .content__text
         comment1
-    %div.content
-      %div.content-info
+    .content
+      .content-info
         %p.cotent-info__user
           ユーザー名2
         %p.content-info__date-time
           2019/04/26(Fri)15:57:11
-      %div.content__text
+      .content__text
         comment2
 
-  %div.form
+  .form
     %form.new-content
-      %div.input-box
+      .input-box
         %input.input-box__text{placeholder:'type a message'}
         %label.image-label
           %i.fa.fa-image
