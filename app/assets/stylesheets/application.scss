@@ -1,6 +1,12 @@
-@import "./reset";
-@import "variable";
+@import "config/reset";
+@import "config/variable";
 @import "font-awesome";
 
-//comments .noteのimport
-@import "comments";
+//commentsのビューをimport
+@import "modules/comments";
+
+//deviseのビューのimport
+@import "modules/user";
+
+//flash.scssをインポート
+@import "modules/flash";
