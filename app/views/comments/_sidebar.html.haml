@@ -11,15 +11,9 @@
           %i.fa.fa-cog.my-white
   
   .group_selection
-    %p.group_selection__group-name
-      グループ名1
-    %p.group_selection__group-comment
-      コメント1
-    %p.group_selection__group-name
-      グループ名2
-    %p.group_selection__group-comment
-      コメント2
-    %p.group_selection__group-name
-      グループ名3
-    %p.group_selection__group-comment
-      コメント3
+    - current_user.groups.each do |group|
+      = link_to group_comments_path(group) do
+        .group_selection__group-name
+          = group.name
+        .group_selection__group-comment
+          メッセージはまだありません。
