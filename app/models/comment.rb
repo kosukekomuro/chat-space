@@ -4,6 +4,3 @@ class Comment < ApplicationRecord
 
   validates :content, presence: true, unless: :image?
 end
-
-
-end
