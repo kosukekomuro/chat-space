@@ -15,29 +15,14 @@
       Edit
 
   .chat-area
-    .content
-      .content-info
-        %p.cotent-info__user
-          ユーザー名1
-        %p.content-info__date-time
-          2019/04/25(Thu)15:57:11
-      .content__text
-        comment1
-    .content
-      .content-info
-        %p.cotent-info__user
-          ユーザー名2
-        %p.content-info__date-time
-          2019/04/26(Fri)15:57:11
-      .content__text
-        comment2
-
+    = render partial: 'comment', collection: @comments
   .form
-    %form.new-content
+    -# form_forでのクラス名指定 html:{class: クラス名}
+    = form_for [@group, @comment], html: {class: 'new-content'} do |f|
       .input-box
-        %input.input-box__text{placeholder:'type a message'}
-        %label.image-label
-          %i.fa.fa-image
-          %input.image-label__input#message_image{type: 'file', name: 'message[image]'}
-          
-      %input.new-content__submit-btn{ type:'submit', value: 'Send'}
+        -# = f.text_fieldの次はname属性を設定している。
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'image-label' do
+          = fa_icon 'image'
+          = f.file_field :image, class: 'image-label__input'
+      = f.submit 'Send', class: 'new-content__submit-btn'
