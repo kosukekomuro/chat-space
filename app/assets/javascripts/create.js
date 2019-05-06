@@ -68,10 +68,18 @@ $(function(){
 
       //一番下までスクロールする
       $('.chat-area').animate({scrollTop: $('.chat-area')[0].scrollHeight}, 'fast');
+
+      //inputboxのメッセージの削除
+      $('#comment_content').val('');
+      
     })
     ////jsonデータの受け取りに失敗した場合
     .fail(function(){
       alert('メッセージの送信に失敗しました')
+    })
+    // disabled(ボタンが使えなくなる)属性を削除
+    .always(function(data){
+      $('.new-content__submit-btn').prop('disabled', false);　//ここで解除している
     })
   })
 })
