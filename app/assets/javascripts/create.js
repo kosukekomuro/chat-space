@@ -25,32 +25,13 @@ $(function(){
     return html
   }
 
-  // // textの追加
-  // const addText = text =>{
-  //   const contentText = `<div class = 'content__text'>
-  //                           ${text}
-  //                       </div>`
-  //   return contentText
-  // }
-
-  // //imageの追加
-  // const addImage = image =>{
-  //   const contentImage = `<div class = 'lower-message__image'>
-  //                           ${image}
-  //                       </div>`
-  //   return contentImage
-  // }
-
   // formの送信イベント
   $('#new-content').on('submit', function(e){
     // デフォルトの送信を止める
     e.preventDefault();
 
-    console.log(this);
-    var formData = new FormData(this);
+    let formData = new FormData(this);
     let url = $(this).attr('action');
-
-    console.log(formData);
 
     $.ajax({
       url: url,
@@ -62,7 +43,6 @@ $(function(){
     })
     //jsonデータの受け取りに成功した場合
     .done(function(data){
-      console.log(data);
       const html = buildHTML(data);
       $('.chat-area').append(html);
 
