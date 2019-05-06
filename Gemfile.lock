@@ -246,7 +246,7 @@ DEPENDENCIES
   faker
   font-awesome-rails
   haml-rails
-  jbuilder (~> 2.5)
+  jbuilder
   jquery-rails
   listen (~> 3.0.5)
   mini_magick

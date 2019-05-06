@@ -9,15 +9,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @group.comments.new(comment_params)
 
-    binding.pry
-
-    respond_to do |format|
-      format.html
-      format.json
-    end
-
     if @comment.save
-      redirect_to group_comments_path(@group), notice: 'メッセージが送信されました'
+      respond_to do |format|
+        format.html { redirect_to group_comments_path(@comment.group_id), notice: 'メッセージが送信されました'  }
+        format.json
+      end
+
+      
     else
       @comments = @group.comments.includes(:user)
       flash.now[:alert] = 'メッセージを入力してください。'
@@ -32,6 +30,7 @@ class CommentsController < ApplicationController
   end
 
   def set_group
+    # binding.pry
     @group = Group.find(params[:group_id])
   end
 end
