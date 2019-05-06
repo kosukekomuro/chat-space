@@ -8,6 +8,14 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @group.comments.new(comment_params)
+
+    binding.pry
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
+
     if @comment.save
       redirect_to group_comments_path(@group), notice: 'メッセージが送信されました'
     else
