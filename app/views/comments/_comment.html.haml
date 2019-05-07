@@ -7,4 +7,4 @@
   .content__text
     - if comment.content.present?
       = comment.content
-    = image_tag comment.image.url, class: 'lower-message__image' if comment.image.present?
+  = image_tag comment.image.url, class: 'lower-message__image' if comment.image.present?

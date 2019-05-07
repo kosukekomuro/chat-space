@@ -18,7 +18,7 @@
     = render partial: 'comment', collection: @comments
   .form
     -# form_forでのクラス名指定 html:{class: クラス名}
-    = form_for [@group, @comment], html: {class: 'new-content'} do |f|
+    = form_for [@group, @comment], html: {id: 'new-content', class: 'new-content'} do |f|
       .input-box
         -# = f.text_fieldの次はname属性を設定している。
         = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
