@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
 
   // アロー関数による定義
   const buildHTML = content =>{
@@ -12,12 +12,15 @@ $(function(){
                       </p> 
                     </div>`
 
+    // 加えるhtmlを条件分岐
+    //テキストが存在する場合
     if (content.content !== ''){
       html += `<div class = 'content__text'>
                   ${content.content}
               </div>`
     }
 
+    //画像が存在する場合
     if (content.image.url !== null){
       html += `<img src = ${content.image.url}>
               </img>`
@@ -51,7 +54,9 @@ $(function(){
 
       //inputboxのメッセージの削除
       $('#comment_content').val('');
-      
+
+      //imageのsrc属性削除
+      $('#comment_image').val('');
     })
     ////jsonデータの受け取りに失敗した場合
     .fail(function(){
@@ -59,7 +64,7 @@ $(function(){
     })
     // disabled(ボタンが使えなくなる)属性を削除
     .always(function(data){
-      $('.new-content__submit-btn').prop('disabled', false);　//ここで解除している
+      $('.new-content__submit-btn').prop('disabled', false);
     })
   })
 })
