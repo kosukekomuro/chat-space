@@ -52,11 +52,8 @@ $(document).on('turbolinks:load', function(){
       //一番下までスクロールする
       $('.chat-area').animate({scrollTop: $('.chat-area')[0].scrollHeight}, 'fast');
 
-      //inputboxのメッセージの削除
-      $('#comment_content').val('');
-
-      //imageのsrc属性削除
-      $('#comment_image').val('');
+      //reset():フォーム部品の値を初期設定値に戻す
+      $('#new-content')[0].reset();
     })
     ////jsonデータの受け取りに失敗した場合
     .fail(function(){
