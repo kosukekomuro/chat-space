@@ -28,8 +28,6 @@ $(document).on('turbolinks:load', function(){
     //ユーザーの入力を取得
     let input = $("#user-search-field").val();
 
-    console.log(input);
-
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -37,7 +35,6 @@ $(document).on('turbolinks:load', function(){
       dataType: 'json'
     })
     .done(function(users){
-      console.log(users)
       //検索結果の初期化
       $("#user-search-result").empty();
       if(users.length !==0){
@@ -66,7 +63,7 @@ $(function(){
                     <p class='chat-group-user__name'>${name}</p>
                     <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
                   </div>`
-                  
+
       group_member_list.append(html);
     }
 
@@ -79,7 +76,6 @@ $(function(){
 
     appendGroupMember(id, name);
 
-    console.log(this);
     //イベントが発火した要素とその親要素を削除
     $(this).parent().remove();
   })
