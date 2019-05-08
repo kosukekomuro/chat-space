@@ -23,21 +23,6 @@ $(document).on('turbolinks:load', function(){
     search_list.append(html);
   }
 
-  //現在のグループメンバーを表示するDOMの作成
-  const appendGroupMember = (id, name) => {
-
-    const group_member_list = $("#chat-group-users");
-
-    const html =`<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
-                  <input name='group[user_ids][]' type='hidden' value='${id}'>
-                  <p class='chat-group-user__name'>${name}</p>
-                  <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
-                </div>`
-
-    group_member_list.append(html);
-  }
-
-
   //キーを入力するごと発火
   $("#user-search-field").on("keyup", function(){
     //ユーザーの入力を取得
@@ -66,6 +51,24 @@ $(document).on('turbolinks:load', function(){
       alert('ユーザーの検索に失敗しました')
     })
   })
+})
+
+//turbolinksによりイベントが二回発火しないように書き換え
+$(function(){
+
+    //現在のグループメンバーを表示するDOMの作成
+    const appendGroupMember = (id, name) => {
+
+      const group_member_list = $("#chat-group-users");
+  
+      const html =`<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
+                    <input name='group[user_ids][]' type='hidden' value='${id}'>
+                    <p class='chat-group-user__name'>${name}</p>
+                    <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+                  </div>`
+                  
+      group_member_list.append(html);
+    }
 
   //動的に追加されたHTML要素のイベントを取得する方法
   //$(document)とonメソッドを使用し、第二引数にセレクタを入れる
