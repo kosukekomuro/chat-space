@@ -1,8 +1,17 @@
 class UsersController < ApplicationController
 
   def index
+    # 検索フォームのキーワードであいまい検索を行い、usersテーブルからユーザー情報を取得する
+    @users = User.where('name LIKE(?)', "#{params[:keyword]}%")
+
+    # binding.pry
+
+    respond_to do |format|
+      format.html { redirect_to new_group_path}
+      format.json
+    end
   end
-  
+
   def edit
   end
 
