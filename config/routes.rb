@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :edit, :update]
   resources :groups, only: [:new, :create, :edit, :update] do
     resources :comments, only: [:index, :create]
+    # APIのルーティング追加
+    namespace :api do
+      resources :comments, only: :index, defaults: { format: 'json' }
+    end
   end
 end
