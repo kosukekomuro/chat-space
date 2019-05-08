@@ -2,9 +2,8 @@ class UsersController < ApplicationController
 
   def index
     # 検索フォームのキーワードであいまい検索を行い、usersテーブルからユーザー情報を取得する
-    @users = User.where('name LIKE(?)', "#{params[:keyword]}%")
-
-    # binding.pry
+    # 自分の情報は除外する
+    @users = User.where('name LIKE(?) AND id NOT LIKE(?)' , "#{params[:keyword]}%", "#{current_user.id}")
 
     respond_to do |format|
       format.html { redirect_to new_group_path}

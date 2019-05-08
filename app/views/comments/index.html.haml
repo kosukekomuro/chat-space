@@ -4,15 +4,15 @@
   .main-header
     .current-group
       %p.current-group__group-name
-        現在のグループ
+        = @group.name
       %ul.group-members
         Member:
-        %li.group-members__name
-          メンバー１
-        %li.group-members__name
-          メンバー2
-    .main-header__edit-btn
-      Edit
+        - @group.users.each do |user|
+          %li.group-members__name
+            = user.name
+    = link_to edit_group_path(@group.id) do
+      .main-header__edit-btn
+        Edit
 
   .chat-area
     = render partial: 'comment', collection: @comments
