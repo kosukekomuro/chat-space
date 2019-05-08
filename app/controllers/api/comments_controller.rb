@@ -1,5 +1,5 @@
-class Api::MessagesController < ApplicationController
+class Api::CommentsController < ApplicationController
   def index
-    @comments = @group.comments.where("id > ?", 'id')
+    @comments = Comment.where("id > ?", "#{params[:id]}")
   end
 end
