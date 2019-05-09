@@ -92,6 +92,6 @@ $(document).on('turbolinks:load', function(){
       alert('自動更新に失敗しました');
     });
   };
-  //5秒ごとにcontentを更新
+  // 5秒ごとにcontentを更新
   setInterval(reloadMessages, 5000);
 })
