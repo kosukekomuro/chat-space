@@ -69,7 +69,6 @@ $(document).on('turbolinks:load', function(){
   const reloadMessages = () => {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
     let last_comment_id = $(".content:last").attr('data-comment-id')
-    console.log(last_comment_id);
     $.ajax({
       //ルーティングで設定した通りのURLを指定
       url: 'api/comments',
@@ -80,7 +79,6 @@ $(document).on('turbolinks:load', function(){
       data: {id: last_comment_id}
     })
     .done(function(comments) {
-      console.log('success');
       if(comments.length !==0){
         comments.forEach(function(comment){
           buildContentHTML(comment);
@@ -90,11 +88,10 @@ $(document).on('turbolinks:load', function(){
       };
     })
     .fail(function() {
-      console.log('fail');
-      // alert('自動更新に失敗しました');
+
+      alert('自動更新に失敗しました');
     });
   };
-  //1秒ごとにcontentを更新
+  //5秒ごとにcontentを更新
   setInterval(reloadMessages, 5000);
-  console.log("a")
 })
