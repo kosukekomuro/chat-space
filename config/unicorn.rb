@@ -1,6 +1,8 @@
 #Capistranoをしようしたことにより階層が一段深いため編集
 # app_path = File.expand_path('../../', __FILE__)
-app_path = File.expand_path('../../../', __FILE__)
+# Capitranoをインストール後階層が変化するはずだがこれではない？
+# app_path = File.expand_path('../../../', __FILE__)
+app_path = "/var/www/chat-space"
 
 worker_processes 1
 
