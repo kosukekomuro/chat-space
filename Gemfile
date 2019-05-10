@@ -79,3 +79,5 @@ gem 'pry-rails'
 
 # JQueryでreadyイベントを発火させるために利用
 gem 'jquery-turbolinks'
+#画像アップロードの際、ダイブのストレージを選択し、アップロードするのを補助する
+gem 'fog-aws'
