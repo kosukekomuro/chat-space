@@ -88,10 +88,15 @@ $(document).on('turbolinks:load', function(){
       };
     })
     .fail(function() {
-
       alert('自動更新に失敗しました');
     });
   };
-  // 5秒ごとにcontentを更新
-  setInterval(reloadMessages, 5000);
+
+  // urlの後方にcommentsが含まれている場合自動更新を行う
+  const url = location.pathname;
+  const pattern = 'comments';
+  if(url.endsWith(pattern)){
+    setInterval(reloadMessages, 5000);
+
+  };
 })
